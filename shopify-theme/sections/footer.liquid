@@ -1,34 +1,121 @@
-<footer class="site-footer">
+<footer class="site-footer lx-foot">
   <div class="container">
-    <div class="lx-footer-top">
-      <h3>Visit the atelier.<br><em>By appointment.</em></h3>
-      <div><p>Via della Spiga 18, Milan · Mon–Sat 10:00–19:00<br>hello@noiratelier.com · +39 02 0000 0000</p><div class="lx-pay" style="margin-top:1.25rem"><span>VISA</span><span>MASTERCARD</span><span>AMEX</span><span>PAYPAL</span><span>APPLE PAY</span></div></div>
+    <div class="lx-foot__top lx-up">
+      <div><p class="eyebrow">{{ section.settings.nl_eyebrow | escape }}</p><h3 class="lx-foot__title">{{ section.settings.nl_heading }}</h3></div>
+      {%- form 'customer', class: 'lx-foot__form', id: 'FooterNewsletter' -%}<input type="hidden" name="contact[tags]" value="newsletter"><label class="visually-hidden" for="ft-email">Email</label><input id="ft-email" type="email" name="contact[email]" placeholder="{{ section.settings.nl_placeholder | escape }}" required><button type="submit">{% if form.posted_successfully? %}Thank you{% else %}Subscribe <span aria-hidden="true">→</span>{% endif %}</button>{%- endform -%}
     </div>
-    <div class="site-footer__grid">
+    <div class="lx-foot__cols" data-lx-stagger>
       {%- for block in section.blocks -%}
-        <div {{ block.shopify_attributes }}>
-          <h4>{{ block.settings.heading | default: block.settings.menu.title | escape }}</h4>
-          <ul>{%- for link in block.settings.menu.links -%}<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>{%- endfor -%}</ul>
-        </div>
+        <div {{ block.shopify_attributes }}><h4>{{ block.settings.heading | escape }}</h4><ul>{%- for link in block.settings.menu.links -%}<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>{%- endfor -%}</ul></div>
       {%- endfor -%}
-      <div>
-        <h4>{{ 'footer.follow' | t }}</h4>
-        <div class="socials">
-          {%- if settings.social_instagram != blank -%}<a href="{{ settings.social_instagram }}" aria-label="Instagram">{% render 'icon-instagram' %}</a>{%- endif -%}
-          {%- if settings.social_pinterest != blank -%}<a href="{{ settings.social_pinterest }}" aria-label="Pinterest">{% render 'icon-pinterest' %}</a>{%- endif -%}
-          {%- if settings.social_tiktok != blank -%}<a href="{{ settings.social_tiktok }}" aria-label="TikTok">{% render 'icon-tiktok' %}</a>{%- endif -%}
-        </div>
-      </div>
+      <div><h4>{{ section.settings.visit_heading | escape }}</h4><address>{{ section.settings.address }}</address><p>{{ section.settings.hours | escape }}</p><p><a href="mailto:{{ section.settings.email }}">{{ section.settings.email | escape }}</a><br>{{ section.settings.phone | escape }}</p></div>
     </div>
-    <p class="footer-brand" aria-hidden="true">{{ settings.brand_name | default: shop.name | upcase | escape }}</p>
-    <div class="site-footer__bottom">
-      <span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}. {{ 'footer.rights' | t }}</span>
-      <span>{{ powered_by_link }}</span>
-    </div>
+    <div class="lx-foot__social"><span>Follow @noir.atelier</span><div class="socials">
+        <a href="{{ settings.social_instagram | default: '#' }}" aria-label="Instagram">{% render 'icon-instagram' %}</a>
+        <a href="{{ settings.social_pinterest | default: '#' }}" aria-label="Pinterest">{% render 'icon-pinterest' %}</a>
+        <a href="{{ settings.social_tiktok | default: '#' }}" aria-label="TikTok">{% render 'icon-tiktok' %}</a>
+      </div></div>
+    <p class="lx-foot__mark" data-lx-lines aria-hidden="true"><span class="lx-line"><span>{{ settings.brand_name | default: shop.name | upcase | escape }}</span></span></p>
+    <div class="lx-foot__bottom"><span>&copy; {{ 'now' | date: '%Y' }} {{ shop.name | escape }}. {{ 'footer.rights' | t }} · {{ powered_by_link }}</span><div class="lx-pay"><span>VISA</span><span>MASTERCARD</span><span>AMEX</span><span>PAYPAL</span><span>APPLE PAY</span></div></div>
   </div>
 </footer>
 {% schema %}
-{"name":"Footer","max_blocks":4,
-"blocks":[{"type":"links","name":"Link list","settings":[{"type":"text","id":"heading","label":"Heading"},{"type":"link_list","id":"menu","label":"Menu","default":"footer"}]}],
-"presets":[{"name":"Footer","blocks":[{"type":"links","settings":{"heading":"Shop"}},{"type":"links","settings":{"heading":"Help"}}]}]}
+{
+ "name": "Footer",
+ "max_blocks": 3,
+ "settings": [
+  {
+   "type": "text",
+   "id": "nl_eyebrow",
+   "label": "Newsletter eyebrow",
+   "default": "The Atelier Letter"
+  },
+  {
+   "type": "text",
+   "id": "nl_heading",
+   "label": "Newsletter heading",
+   "default": "Letters from the atelier, <em>once a month.</em>"
+  },
+  {
+   "type": "text",
+   "id": "nl_placeholder",
+   "label": "Email placeholder",
+   "default": "Your email address"
+  },
+  {
+   "type": "text",
+   "id": "visit_heading",
+   "label": "Visit heading",
+   "default": "Visit"
+  },
+  {
+   "type": "textarea",
+   "id": "address",
+   "label": "Address",
+   "default": "12 Example Avenue<br>Milan 20100, Italy"
+  },
+  {
+   "type": "text",
+   "id": "hours",
+   "label": "Opening hours",
+   "default": "Mon–Sat · 10:00–19:00"
+  },
+  {
+   "type": "text",
+   "id": "email",
+   "label": "Email",
+   "default": "hello@example.com"
+  },
+  {
+   "type": "text",
+   "id": "phone",
+   "label": "Phone",
+   "default": "+00 000 000 0000"
+  }
+ ],
+ "blocks": [
+  {
+   "type": "links",
+   "name": "Link list",
+   "settings": [
+    {
+     "type": "text",
+     "id": "heading",
+     "label": "Heading"
+    },
+    {
+     "type": "link_list",
+     "id": "menu",
+     "label": "Menu",
+     "default": "footer"
+    }
+   ]
+  }
+ ],
+ "presets": [
+  {
+   "name": "Footer",
+   "blocks": [
+    {
+     "type": "links",
+     "settings": {
+      "heading": "Shop"
+     }
+    },
+    {
+     "type": "links",
+     "settings": {
+      "heading": "Atelier"
+     }
+    },
+    {
+     "type": "links",
+     "settings": {
+      "heading": "Help"
+     }
+    }
+   ]
+  }
+ ]
+}
 {% endschema %}

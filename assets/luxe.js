@@ -25,6 +25,12 @@
     var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -10% 0px', threshold: .08 });
     targets.forEach(function (t) { io.observe(t); });
   }
+  // 2b. Wipe reveals: observe the parent (clip-path on the target hides it from IntersectionObserver)
+  $$('.reveal-wipe').forEach(function (w) {
+    if (reduce || !('IntersectionObserver' in window)) { w.classList.add('is-visible'); return; }
+    var o = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { w.classList.add('is-visible'); o.disconnect(); } }, { threshold: .1 });
+    o.observe(w.parentElement);
+  });
   // 3. Parallax
   if (hasGsap) {
     $$('[data-speed]').forEach(function (el) {
