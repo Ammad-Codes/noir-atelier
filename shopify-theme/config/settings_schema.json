@@ -1,0 +1,183 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Noir Atelier",
+    "theme_version": "1.0.0",
+    "theme_author": "Ammad Khan",
+    "theme_documentation_url": "https://github.com/Ammad-Codes/noir-atelier",
+    "theme_support_url": "https://github.com/Ammad-Codes/noir-atelier/issues"
+  },
+  {
+    "name": "Brand",
+    "settings": [
+      {
+        "type": "text",
+        "id": "brand_name",
+        "label": "Brand name (loader & footer)",
+        "default": "Noir Atelier"
+      }
+    ]
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#f4f1ec"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#0d0d0d"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent (gold)",
+        "default": "#c8a97e"
+      },
+      {
+        "type": "color",
+        "id": "color_surface",
+        "label": "Surface",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Muted text",
+        "default": "#6b6660"
+      },
+      {
+        "type": "color",
+        "id": "color_sale",
+        "label": "Sale",
+        "default": "#b4442f"
+      }
+    ]
+  },
+  {
+    "name": "Layout",
+    "settings": [
+      {
+        "type": "range",
+        "id": "radius_card",
+        "label": "Card radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "default": 24
+      },
+      {
+        "type": "range",
+        "id": "radius_button",
+        "label": "Button radius",
+        "min": 0,
+        "max": 50,
+        "step": 2,
+        "unit": "px",
+        "default": 50
+      },
+      {
+        "type": "range",
+        "id": "radius_image",
+        "label": "Image radius",
+        "min": 0,
+        "max": 40,
+        "step": 2,
+        "unit": "px",
+        "default": 20
+      },
+      {
+        "type": "range",
+        "id": "section_spacing",
+        "label": "Section spacing",
+        "min": 40,
+        "max": 200,
+        "step": 10,
+        "unit": "px",
+        "default": 120
+      },
+      {
+        "type": "range",
+        "id": "container_max",
+        "label": "Max page width",
+        "min": 1000,
+        "max": 1800,
+        "step": 20,
+        "unit": "px",
+        "default": 1360
+      },
+      {
+        "type": "range",
+        "id": "heading_scale",
+        "label": "Heading size",
+        "min": 80,
+        "max": 130,
+        "step": 5,
+        "unit": "%",
+        "default": 100
+      }
+    ]
+  },
+  {
+    "name": "Animations",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_loader",
+        "label": "Page loader",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_cursor",
+        "label": "Custom cursor",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "enable_flying_image",
+        "label": "Flying image on add to cart",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free shipping threshold (store currency, 0 = hide bar)",
+        "default": 250
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram URL",
+        "default": "https://instagram.com"
+      },
+      {
+        "type": "text",
+        "id": "social_pinterest",
+        "label": "Pinterest URL",
+        "default": "https://pinterest.com"
+      },
+      {
+        "type": "text",
+        "id": "social_tiktok",
+        "label": "TikTok URL"
+      }
+    ]
+  }
+]

@@ -1,0 +1,14 @@
+<div class="marquee" style="--marquee-speed: {{ section.settings.speed }}s" aria-hidden="true">
+  <div class="marquee__track">
+    {%- for i in (1..2) -%}
+      <div class="marquee__group">
+        {%- for block in section.blocks -%}<span class="marquee__item" {{ block.shopify_attributes }}>{{ block.settings.text | escape }}</span>{%- endfor -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+{% schema %}
+{"name":"Marquee","settings":[{"type":"range","id":"speed","label":"Speed (seconds per loop)","min":10,"max":60,"step":2,"default":28}],
+"blocks":[{"type":"word","name":"Word","settings":[{"type":"text","id":"text","label":"Text","default":"New Season"}]}],
+"presets":[{"name":"Marquee","blocks":[{"type":"word","settings":{"text":"New Season"}},{"type":"word","settings":{"text":"Free Shipping"}},{"type":"word","settings":{"text":"Limited Drop"}}]}]}
+{% endschema %}

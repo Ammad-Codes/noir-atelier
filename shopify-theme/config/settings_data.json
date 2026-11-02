@@ -1,0 +1,48 @@
+{
+  "current": {
+    "brand_name": "Noir Atelier",
+    "color_background": "#f4f1ec",
+    "color_text": "#0d0d0d",
+    "color_accent": "#c8a97e",
+    "color_surface": "#ffffff",
+    "color_muted": "#6b6660",
+    "color_sale": "#b4442f",
+    "radius_card": 24,
+    "radius_button": 50,
+    "radius_image": 20,
+    "section_spacing": 120,
+    "container_max": 1360,
+    "heading_scale": 100,
+    "enable_loader": true,
+    "enable_cursor": true,
+    "enable_flying_image": true,
+    "free_shipping_threshold": 250,
+    "social_instagram": "https://instagram.com",
+    "social_pinterest": "https://pinterest.com",
+    "social_tiktok": ""
+  },
+  "presets": {
+    "Default": {
+      "brand_name": "Noir Atelier",
+      "color_background": "#f4f1ec",
+      "color_text": "#0d0d0d",
+      "color_accent": "#c8a97e",
+      "color_surface": "#ffffff",
+      "color_muted": "#6b6660",
+      "color_sale": "#b4442f",
+      "radius_card": 24,
+      "radius_button": 50,
+      "radius_image": 20,
+      "section_spacing": 120,
+      "container_max": 1360,
+      "heading_scale": 100,
+      "enable_loader": true,
+      "enable_cursor": true,
+      "enable_flying_image": true,
+      "free_shipping_threshold": 250,
+      "social_instagram": "https://instagram.com",
+      "social_pinterest": "https://pinterest.com",
+      "social_tiktok": ""
+    }
+  }
+}

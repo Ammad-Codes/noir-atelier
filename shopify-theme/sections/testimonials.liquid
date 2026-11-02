@@ -1,0 +1,29 @@
+<section class="section testimonials">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal>
+      <p class="eyebrow reveal-up">{{ section.settings.eyebrow | escape }}</p>
+      <h2 class="section-title"><span class="reveal-mask"><span>{{ section.settings.heading }}</span></span></h2>
+    </div>
+    <div class="carousel3d" data-carousel3d>
+      <div class="carousel3d__ring" data-ring>
+        {%- for block in section.blocks -%}
+          <article class="review" {{ block.shopify_attributes }}>
+            <div class="review__stars" aria-label="{{ block.settings.rating }} / 5">{% for i in (1..block.settings.rating) %}★{% endfor %}</div>
+            <p class="review__quote">“{{ block.settings.quote | escape }}”</p>
+            <div class="review__author">
+              {%- if block.settings.avatar != blank -%}{{ block.settings.avatar | image_url: width: 120 | image_tag: loading: 'lazy', alt: '' }}{%- endif -%}
+              {{ block.settings.author | escape }}
+            </div>
+          </article>
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="carousel3d__nav"><button class="carousel3d__btn" type="button" data-prev aria-label="{{ 'general.previous' | t }}">&larr;</button><button class="carousel3d__btn" type="button" data-next aria-label="{{ 'general.next' | t }}">&rarr;</button></div>
+  </div>
+</section>
+{% schema %}
+{"name":"Testimonials (3D)","max_blocks":10,
+"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow","default":"Reviews"},{"type":"text","id":"heading","label":"Heading","default":"Worn &amp; <em>loved</em>"}],
+"blocks":[{"type":"review","name":"Review","settings":[{"type":"textarea","id":"quote","label":"Quote","default":"The wool coat is the best thing I own."},{"type":"text","id":"author","label":"Author","default":"Sofia M. — Milan"},{"type":"range","id":"rating","label":"Rating","min":1,"max":5,"step":1,"default":5},{"type":"image_picker","id":"avatar","label":"Avatar"}]}],
+"presets":[{"name":"Testimonials (3D)","blocks":[{"type":"review"},{"type":"review"},{"type":"review"},{"type":"review"},{"type":"review"}]}]}
+{% endschema %}

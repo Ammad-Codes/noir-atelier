@@ -1,0 +1,11 @@
+/* Demo catalogue — in the Shopify theme this data comes from Liquid */
+window.NOIR_PRODUCTS = [
+ {id:1,title:"Sculpted Wool Coat",vendor:"Outerwear",price:48000,compare:0,img:"https://images.unsplash.com/photo-1539109136881-3be0616acf4b",img2:"https://images.unsplash.com/photo-1485968579580-b6d095142e6e",sizes:["XS","S","M","L"],colors:["#2b2622","#c8a97e"],badge:"New"},
+ {id:2,title:"Washed Silk Slip Dress",vendor:"Dresses",price:32000,compare:42000,img:"https://images.unsplash.com/photo-1595777457583-95e059d581b8",img2:"https://images.unsplash.com/photo-1572804013309-59a88b7e92f1",sizes:["XS","S","M"],colors:["#e9dccb","#0d0d0d"],badge:"Sale"},
+ {id:3,title:"Leather Biker Jacket",vendor:"Outerwear",price:65000,compare:0,img:"https://images.unsplash.com/photo-1551028719-00167b16eac5",img2:"https://images.unsplash.com/photo-1520975954732-35dd22299614",sizes:["S","M","L","XL"],colors:["#0d0d0d"],badge:""},
+ {id:4,title:"Tailored Double Blazer",vendor:"Suiting",price:42000,compare:0,img:"https://images.unsplash.com/photo-1594633312681-425c7b97ccd1",img2:"https://images.unsplash.com/photo-1617137984095-74e4e5e3613f",sizes:["46","48","50","52"],colors:["#1d2433","#6b6660"],badge:"New"},
+ {id:5,title:"Raw Cashmere Knit",vendor:"Knitwear",price:28000,compare:0,img:"https://images.unsplash.com/photo-1576566588028-4147f3842f27",img2:"https://images.unsplash.com/photo-1434389677669-e08b4cac3105",sizes:["S","M","L"],colors:["#d9cbb5","#7a5c45"],badge:""},
+ {id:6,title:"Essential Organic Tee",vendor:"Essentials",price:9500,compare:12000,img:"https://images.unsplash.com/photo-1521572163474-6864f9cf17ab",img2:"https://images.unsplash.com/photo-1503342217505-b0a15ec3261c",sizes:["S","M","L","XL"],colors:["#ffffff","#0d0d0d"],badge:"Sale"},
+ {id:7,title:"Selvedge Straight Denim",vendor:"Denim",price:21000,compare:0,img:"https://images.unsplash.com/photo-1541099649105-f69ad21f3246",img2:"https://images.unsplash.com/photo-1542272604-787c3835535d",sizes:["28","30","32","34"],colors:["#2f3d57"],badge:""},
+ {id:8,title:"Atelier Leather Tote",vendor:"Accessories",price:38000,compare:0,img:"https://images.unsplash.com/photo-1548036328-c9fa89d128fa",img2:"https://images.unsplash.com/photo-1584917865442-de89df76afd3",sizes:["One size"],colors:["#7a5c45","#0d0d0d"],badge:"Limited"}
+];

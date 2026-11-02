@@ -1,0 +1,59 @@
+{%- paginate collection.products by section.settings.per_page -%}
+<section class="section">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <div><p class="eyebrow reveal-up">{{ 'collections.count' | t: count: collection.products_count }}</p><h1 class="section-title"><span class="reveal-mask"><span>{{ collection.title | escape }}</span></span></h1></div>
+    </div>
+    <div class="collection__layout">
+      <form class="collection__filters" data-filters>
+        <div class="collection__toolbar"><strong>{{ 'collections.filter' | t }}</strong><button type="button" class="icon-btn" data-filter-close aria-label="{{ 'general.close' | t }}">&times;</button></div>
+        {%- for filter in collection.filters -%}
+          <fieldset class="variant-group" style="margin-bottom:1.5rem">
+            <legend>{{ filter.label | escape }}</legend>
+            {%- case filter.type -%}
+              {%- when 'list', 'boolean' -%}
+                {%- for value in filter.values -%}
+                  <label style="display:flex;gap:.5rem;font-size:.9rem"><input type="checkbox" name="{{ value.param_name }}" value="{{ value.value }}" {% if value.active %}checked{% endif %} {% if value.count == 0 and value.active == false %}disabled{% endif %} onchange="this.form.submit()"> {{ value.label | escape }} ({{ value.count }})</label>
+                {%- endfor -%}
+              {%- when 'price_range' -%}
+                <div style="display:flex;gap:.5rem">
+                  <input class="select" type="number" name="{{ filter.min_value.param_name }}" value="{{ filter.min_value.value | money_without_currency | replace: ',', '' }}" placeholder="0" style="width:50%">
+                  <input class="select" type="number" name="{{ filter.max_value.param_name }}" value="{{ filter.max_value.value | money_without_currency | replace: ',', '' }}" placeholder="{{ filter.range_max | money_without_currency | replace: ',', '' }}" style="width:50%">
+                </div>
+            {%- endcase -%}
+          </fieldset>
+        {%- endfor -%}
+        <input type="hidden" name="sort_by" value="{{ collection.sort_by | default: collection.default_sort_by }}">
+        <button class="btn btn--dark btn--small"><span class="btn__label">{{ 'collections.apply' | t }}</span></button>
+        <a href="{{ collection.url }}?sort_by={{ collection.sort_by }}" class="cart-item__remove">{{ 'collections.clear' | t }}</a>
+      </form>
+      <div>
+        <div class="collection__toolbar">
+          <button type="button" class="btn btn--ghost btn--small" data-filter-toggle aria-expanded="false"><span class="btn__label">{{ 'collections.filter' | t }}</span></button>
+          <select class="select" data-sort-select aria-label="{{ 'collections.sort' | t }}">
+            {%- assign sort_by = collection.sort_by | default: collection.default_sort_by -%}
+            {%- for option in collection.sort_options -%}<option value="{{ option.value }}" {% if option.value == sort_by %}selected{% endif %}>{{ option.name | escape }}</option>{%- endfor -%}
+          </select>
+        </div>
+        <div class="product-grid" data-reveal>
+          {%- for product in collection.products -%}
+            {% render 'product-card', product: product, index: forloop.index0 %}
+          {%- else -%}
+            <p>{{ 'collections.empty' | t }}</p>
+          {%- endfor -%}
+        </div>
+        {%- if paginate.pages > 1 -%}
+          <nav class="pagination" aria-label="Pagination">
+            {%- if paginate.previous -%}<a class="btn btn--ghost btn--small" href="{{ paginate.previous.url }}"><span class="btn__label">&larr;</span></a>{%- endif -%}
+            <span>{{ paginate.current_page }} / {{ paginate.pages }}</span>
+            {%- if paginate.next -%}<a class="btn btn--ghost btn--small" href="{{ paginate.next.url }}"><span class="btn__label">&rarr;</span></a>{%- endif -%}
+          </nav>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+{%- endpaginate -%}
+{% schema %}
+{"name":"Collection","settings":[{"type":"range","id":"per_page","label":"Products per page","min":8,"max":48,"step":4,"default":16}]}
+{% endschema %}

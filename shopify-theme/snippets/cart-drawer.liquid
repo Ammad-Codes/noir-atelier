@@ -1,0 +1,19 @@
+<div class="drawer-overlay" data-drawer-overlay></div>
+<aside class="cart-drawer" data-cart-drawer aria-label="{{ 'cart.title' | t }}" aria-hidden="true">
+  <div class="cart-drawer__head">
+    <h2 class="cart-drawer__title">{{ 'cart.title' | t }}</h2>
+    <button type="button" class="icon-btn" data-cart-close aria-label="{{ 'general.close' | t }}">{% render 'icon-close' %}</button>
+  </div>
+  {%- if settings.free_shipping_threshold > 0 -%}
+    <div class="shipping-bar" data-shipping-bar><span data-shipping-text></span><div class="shipping-bar__track"><span class="shipping-bar__fill"></span></div></div>
+  {%- endif -%}
+  <ul class="cart-drawer__items" data-cart-items>
+    {%- if cart.item_count == 0 -%}<li class="cart-drawer__empty">{{ 'cart.empty' | t }}</li>{%- endif -%}
+  </ul>
+  <div class="cart-drawer__foot">
+    <div class="cart-drawer__total"><span>{{ 'cart.subtotal' | t }}</span><span data-cart-total>{{ cart.total_price | money }}</span></div>
+    <p class="cart-drawer__note">{{ 'cart.taxes' | t }}</p>
+    <form action="{{ routes.cart_url }}" method="post"><button type="submit" name="checkout" class="btn btn--dark btn--block"><span class="btn__fill"></span><span class="btn__label">{{ 'cart.checkout' | t }}</span></button></form>
+    <a href="{{ routes.cart_url }}" class="cart-item__remove" style="text-align:center">{{ 'cart.view' | t }}</a>
+  </div>
+</aside>

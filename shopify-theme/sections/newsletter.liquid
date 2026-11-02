@@ -1,0 +1,27 @@
+<section class="section newsletter">
+  <div class="container" data-reveal>
+    <p class="eyebrow reveal-up">{{ section.settings.eyebrow | escape }}</p>
+    <h2 class="section-title"><span class="reveal-mask"><span>{{ section.settings.heading }}</span></span></h2>
+    {%- form 'customer', class: 'newsletter__form reveal-up', data-newsletter: '', data-native: '' -%}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <div class="field">
+        <input class="field__input" id="nl-{{ section.id }}" type="email" name="contact[email]" placeholder=" " autocomplete="email" required>
+        <label class="field__label" for="nl-{{ section.id }}">{{ 'newsletter.label' | t }}</label>
+        <span class="field__line"></span>
+      </div>
+      <button class="btn btn--dark" data-magnetic><span class="btn__fill"></span><span class="btn__label">{{ 'newsletter.button' | t }}</span></button>
+      {%- if form.posted_successfully? -%}
+        <p class="newsletter__success is-shown" style="width:100%">{{ section.settings.success | escape }}</p>
+      {%- elsif form.errors -%}
+        <p class="newsletter__success is-shown" style="width:100%">{{ form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email }}</p>
+      {%- endif -%}
+    {%- endform -%}
+  </div>
+</section>
+{% schema %}
+{"name":"Newsletter","settings":[
+{"type":"text","id":"eyebrow","label":"Eyebrow","default":"The Atelier Letter"},
+{"type":"text","id":"heading","label":"Heading","default":"Join for <em>10% off</em>"},
+{"type":"text","id":"success","label":"Success message","default":"Welcome to the Atelier — your code is on its way."}],
+"presets":[{"name":"Newsletter"}]}
+{% endschema %}

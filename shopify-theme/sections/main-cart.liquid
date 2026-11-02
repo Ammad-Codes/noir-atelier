@@ -1,0 +1,32 @@
+<section class="section">
+  <div class="container" style="max-width:960px">
+    <h1 class="section-title" style="margin-bottom:2rem">{{ 'cart.title' | t }}</h1>
+    {%- if cart.item_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post">
+        {%- for item in cart.items -%}
+          <div class="cart-page__row">
+            {%- if item.image -%}<a href="{{ item.url }}">{{ item.image | image_url: width: 200 | image_tag: loading: 'lazy', style: 'border-radius:14px' }}</a>{%- endif -%}
+            <div>
+              <a class="cart-item__title" href="{{ item.url }}">{{ item.product.title | escape }}</a>
+              {%- unless item.product.has_only_default_variant -%}<div class="cart-item__meta">{{ item.variant.title | escape }}</div>{%- endunless -%}
+              <input class="select" type="number" min="0" name="updates[]" value="{{ item.quantity }}" data-cart-qty data-line="{{ forloop.index }}" aria-label="{{ 'cart.quantity' | t }}" style="width:90px;margin-top:.5rem">
+              <a href="{{ item.url_to_remove }}" class="cart-item__remove">{{ 'cart.remove' | t }}</a>
+            </div>
+            <div class="price">{{ item.final_line_price | money }}</div>
+          </div>
+        {%- endfor -%}
+        <div style="display:grid;gap:1rem;justify-items:end;margin-top:2rem">
+          <div class="cart-drawer__total" style="gap:2rem"><span>{{ 'cart.subtotal' | t }}</span><span>{{ cart.total_price | money }}</span></div>
+          <p class="cart-drawer__note">{{ 'cart.taxes' | t }}</p>
+          <button type="submit" name="checkout" class="btn btn--dark" data-magnetic><span class="btn__fill"></span><span class="btn__label">{{ 'cart.checkout' | t }}</span></button>
+        </div>
+      </form>
+    {%- else -%}
+      <p>{{ 'cart.empty' | t }}</p>
+      <a href="{{ routes.all_products_collection_url }}" class="btn btn--dark"><span class="btn__fill"></span><span class="btn__label">{{ 'cart.continue' | t }}</span></a>
+    {%- endif -%}
+  </div>
+</section>
+{% schema %}
+{"name":"Cart","settings":[]}
+{% endschema %}

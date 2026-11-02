@@ -1,0 +1,24 @@
+<section class="lookbook" data-lookbook>
+  <div class="lookbook__sticky">
+    <div class="container section-head" style="margin:0">
+      <div><p class="eyebrow">{{ section.settings.eyebrow | escape }}</p><h2 class="section-title">{{ section.settings.heading }}</h2></div>
+      <span class="lookbook__counter" data-lookbook-counter>01 / {{ section.blocks.size | prepend: '0' | slice: -2, 2 }}</span>
+    </div>
+    <div class="lookbook__track" data-lookbook-track>
+      {%- for block in section.blocks -%}
+        <figure class="lookbook__item" style="margin:{% cycle '0', '3rem 0 0' %}" data-cursor="view" {{ block.shopify_attributes }}>
+          {%- if block.settings.link != blank -%}<a href="{{ block.settings.link }}">{%- endif -%}
+          {%- if block.settings.image != blank -%}{{ block.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', sizes: '(min-width: 990px) 32vw, 70vw', widths: '500, 800, 1000' }}{%- else -%}{{ 'lifestyle-2' | placeholder_svg_tag }}{%- endif -%}
+          {%- if block.settings.link != blank -%}</a>{%- endif -%}
+          {%- if block.settings.caption != blank -%}<figcaption class="lookbook__caption">{{ block.settings.caption | escape }}</figcaption>{%- endif -%}
+        </figure>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+{% schema %}
+{"name":"Lookbook (horizontal)","max_blocks":12,
+"settings":[{"type":"text","id":"eyebrow","label":"Eyebrow","default":"Lookbook"},{"type":"text","id":"heading","label":"Heading","default":"Chapter <em>Noir</em>"}],
+"blocks":[{"type":"look","name":"Look","settings":[{"type":"image_picker","id":"image","label":"Image"},{"type":"text","id":"caption","label":"Caption","default":"Look 01"},{"type":"url","id":"link","label":"Link"}]}],
+"presets":[{"name":"Lookbook (horizontal)","blocks":[{"type":"look"},{"type":"look"},{"type":"look"},{"type":"look"},{"type":"look"}]}]}
+{% endschema %}

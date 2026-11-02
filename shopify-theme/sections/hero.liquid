@@ -1,0 +1,41 @@
+<section class="hero" data-hero>
+  <div class="hero__media" data-parallax>
+    {%- if section.settings.image != blank -%}
+      {{ section.settings.image | image_url: width: 2400 | image_tag: loading: 'eager', fetchpriority: 'high', sizes: '100vw', widths: '750, 1100, 1500, 2000, 2400', alt: section.settings.image.alt | default: section.settings.heading_1 }}
+    {%- else -%}
+      {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {%- endif -%}
+  </div>
+  <div class="container hero__content" data-reveal>
+    {%- if section.settings.eyebrow != blank -%}<p class="eyebrow reveal-up">{{ section.settings.eyebrow | escape }}</p>{%- endif -%}
+    <h1 class="hero__title">
+      <span class="reveal-mask" style="--d:1"><span>{{ section.settings.heading_1 }}</span></span>
+      <span class="reveal-mask" style="--d:2"><span>{{ section.settings.heading_2 }}</span></span>
+    </h1>
+    <div class="hero__row">
+      {%- if section.settings.text != blank -%}<p class="hero__text reveal-up" style="--d:4">{{ section.settings.text | escape }}</p>{%- endif -%}
+      <div class="hero__actions reveal-up" style="--d:5">
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: routes.all_products_collection_url }}" class="btn btn--light" data-magnetic><span class="btn__fill"></span><span class="btn__label">{{ section.settings.button_label | escape }}</span></a>
+        {%- endif -%}
+        {%- if section.settings.button2_label != blank -%}
+          <a href="{{ section.settings.button2_link }}" class="btn btn--outline-light" data-magnetic><span class="btn__fill"></span><span class="btn__label">{{ section.settings.button2_label | escape }}</span></a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+  <span class="hero__scroll">{{ 'general.scroll' | t }}</span>
+</section>
+{% schema %}
+{"name":"Hero","settings":[
+{"type":"image_picker","id":"image","label":"Image"},
+{"type":"text","id":"eyebrow","label":"Eyebrow","default":"Autumn / Winter 2026"},
+{"type":"text","id":"heading_1","label":"Heading line 1","default":"Quiet luxury,"},
+{"type":"text","id":"heading_2","label":"Heading line 2","info":"Wrap a word in <em> for gold italic","default":"<em>loudly</em> made."},
+{"type":"textarea","id":"text","label":"Text","default":"Considered silhouettes cut from Italian wool, washed silk and raw cashmere."},
+{"type":"text","id":"button_label","label":"Button label","default":"Shop Collection"},
+{"type":"url","id":"button_link","label":"Button link"},
+{"type":"text","id":"button2_label","label":"Second button label","default":"View Lookbook"},
+{"type":"url","id":"button2_link","label":"Second button link"}],
+"presets":[{"name":"Hero"}]}
+{% endschema %}

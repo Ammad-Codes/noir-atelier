@@ -1,0 +1,55 @@
+<header class="site-header" data-header>
+  <div class="site-header__bar">
+    <div class="container site-header__inner">
+      <button class="icon-btn menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="{{ 'general.menu' | t }}"><span class="menu-toggle__lines"></span></button>
+      <nav class="site-header__nav" aria-label="Primary">
+        <ul>
+          {%- for link in section.settings.menu.links -%}
+            <li><a class="nav-link" href="{{ link.url }}"{% if link.active %} aria-current="page"{% endif %}>{{ link.title | escape }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+      <a class="site-header__logo" href="{{ routes.root_url }}">
+        {%- if section.settings.logo != blank -%}
+          {{ section.settings.logo | image_url: width: 300 | image_tag: alt: shop.name, width: section.settings.logo_width, height: null, loading: 'eager' }}
+        {%- else -%}
+          {{ settings.brand_name | default: shop.name | upcase | escape }}
+        {%- endif -%}
+      </a>
+      <div class="site-header__actions">
+        <button class="icon-btn" type="button" data-search-toggle aria-expanded="false" aria-label="{{ 'general.search' | t }}">{% render 'icon-search' %}</button>
+        {%- if shop.customer_accounts_enabled -%}
+          <a class="icon-btn" href="{% if customer %}{{ routes.account_url }}{% else %}{{ routes.account_login_url }}{% endif %}" aria-label="{{ 'general.account' | t }}">{% render 'icon-account' %}</a>
+        {%- endif -%}
+        <a class="icon-btn" href="{{ routes.cart_url }}" data-cart-toggle aria-label="{{ 'cart.open' | t }}">{% render 'icon-bag' %}<span class="cart-count" data-cart-count>{{ cart.item_count }}</span></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="search-panel" data-search-panel hidden>
+    <div class="container search-panel__inner">
+      <form class="search-panel__form" action="{{ routes.search_url }}" method="get" role="search" data-search-form>
+        <input type="hidden" name="type" value="product">
+        <input class="search-panel__input" type="search" name="q" placeholder="{{ 'general.search_placeholder' | t }}" aria-label="{{ 'general.search' | t }}" autocomplete="off" data-search-input>
+        <button type="button" class="btn btn--ghost btn--small" data-search-close><span class="btn__label">{{ 'general.close' | t }}</span></button>
+      </form>
+      <div class="search-panel__results" data-search-results></div>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobile-menu" data-mobile-menu aria-hidden="true">
+  <div class="container mobile-menu__inner">
+    <ul class="mobile-menu__links">
+      {%- for link in section.settings.menu.links -%}
+        <li class="mobile-menu__item"><a class="mobile-menu__link" style="--i: {{ forloop.index0 }}" href="{{ link.url }}"><span class="mobile-menu__index">{{ forloop.index | prepend: '0' | slice: -2, 2 }}</span>{{ link.title | escape }}</a></li>
+      {%- endfor -%}
+    </ul>
+    <div class="mobile-menu__foot"><span>{{ section.settings.menu_note | escape }}</span><a href="{{ routes.cart_url }}" class="mobile-menu__cart" data-cart-toggle>{{ 'cart.title' | t }}</a></div>
+  </div>
+</div>
+
+{% schema %}
+{"name":"Header","class":"section-header",
+"settings":[{"type":"link_list","id":"menu","label":"Menu","default":"main-menu"},{"type":"image_picker","id":"logo","label":"Logo image"},{"type":"range","id":"logo_width","label":"Logo width","min":60,"max":300,"step":10,"unit":"px","default":160},{"type":"text","id":"menu_note","label":"Mobile menu footer text","default":"Instagram — Pinterest"}]}
+{% endschema %}

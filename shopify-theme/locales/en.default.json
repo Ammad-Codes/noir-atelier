@@ -1,0 +1,67 @@
+{
+  "general": {
+    "skip_to_content": "Skip to content",
+    "view": "VIEW",
+    "menu": "Menu",
+    "search": "Search",
+    "search_placeholder": "Search the collection…",
+    "close": "Close",
+    "account": "Account",
+    "scroll": "Scroll to explore",
+    "view_all": "View all",
+    "previous": "Previous",
+    "next": "Next",
+    "back_to_top": "Back to top",
+    "not_found": "This page has slipped off the rail.",
+    "no_results": "No results for “{{ terms }}”"
+  },
+  "cart": {
+    "title": "Your bag",
+    "open": "Open cart",
+    "empty": "Your bag is empty.",
+    "subtotal": "Subtotal",
+    "taxes": "Taxes and shipping calculated at checkout.",
+    "checkout": "Checkout",
+    "view": "View bag",
+    "remove": "Remove",
+    "quantity": "Quantity",
+    "continue": "Continue shopping"
+  },
+  "products": {
+    "add_to_cart": "Add to cart",
+    "quick_add": "Quick add",
+    "choose_options": "Choose options",
+    "sold_out": "Sold out",
+    "unavailable": "Unavailable",
+    "sale": "Sale",
+    "from": "From {{ price }}",
+    "size_guide": "Size guide",
+    "placeholder": "Product title",
+    "view_image": "View image {{ index }}"
+  },
+  "collections": {
+    "count": {
+      "one": "{{ count }} piece",
+      "other": "{{ count }} pieces"
+    },
+    "filter": "Filter",
+    "sort": "Sort by",
+    "apply": "Apply",
+    "clear": "Clear all",
+    "empty": "No products match these filters."
+  },
+  "countdown": {
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Min",
+    "seconds": "Sec"
+  },
+  "newsletter": {
+    "label": "Your email address",
+    "button": "Subscribe"
+  },
+  "footer": {
+    "follow": "Follow",
+    "rights": "All rights reserved."
+  }
+}

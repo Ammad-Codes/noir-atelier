@@ -1,0 +1,70 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+<section class="section">
+  <div class="container product" data-product>
+    <script type="application/json" data-product-json>{{ product | json }}</script>
+    <div class="product__gallery">
+      {%- assign featured = current_variant.featured_media | default: product.featured_media -%}
+      {%- if featured -%}
+        <div class="reveal-wipe">{{ featured | image_url: width: 1400 | image_tag: data-product-image: '', loading: 'eager', sizes: '(min-width: 990px) 55vw, 100vw', widths: '600, 900, 1200, 1400' }}</div>
+      {%- else -%}
+        {{ 'product-apparel-1' | placeholder_svg_tag }}
+      {%- endif -%}
+      {%- if product.media.size > 1 -%}
+        <div class="product-grid">
+          {%- for media in product.media -%}
+            <button type="button" data-thumb="{{ media | image_url: width: 1400 }}" aria-label="{{ 'products.view_image' | t: index: forloop.index }}">{{ media | image_url: width: 400 | image_tag: loading: 'lazy' }}</button>
+          {%- endfor -%}
+        </div>
+      {%- endif -%}
+    </div>
+
+    <div class="product__info">
+      {%- if product.vendor != blank -%}<p class="eyebrow">{{ product.vendor | escape }}</p>{%- endif -%}
+      <h1 class="product__title">{{ product.title | escape }}</h1>
+      <div class="price{% if current_variant.compare_at_price > current_variant.price %} price--sale{% endif %}" data-price>
+        {%- if current_variant.compare_at_price > current_variant.price -%}<s>{{ current_variant.compare_at_price | money }}</s><ins>{{ current_variant.price | money }}</ins>{%- else -%}{{ current_variant.price | money }}{%- endif -%}
+      </div>
+
+      {%- form 'product', product, data-product-form: '' -%}
+        <input type="hidden" name="id" value="{{ current_variant.id }}">
+        {%- unless product.has_only_default_variant -%}
+          {%- for option in product.options_with_values -%}
+            <fieldset class="variant-group">
+              <legend>{{ option.name | escape }}</legend>
+              <div class="variant-options">
+                {%- for value in option.values -%}
+                  <label class="variant-option">
+                    <input type="radio" name="option-{{ forloop.parentloop.index0 }}" value="{{ value | escape }}" data-option-index="{{ forloop.parentloop.index0 }}" {% if option.selected_value == value %}checked{% endif %}>
+                    <span>{{ value | escape }}</span>
+                  </label>
+                {%- endfor -%}
+              </div>
+            </fieldset>
+          {%- endfor -%}
+          {%- if section.settings.size_guide != blank -%}<button type="button" class="cart-item__remove" data-modal-open="size-guide-{{ section.id }}">{{ 'products.size_guide' | t }}</button>{%- endif -%}
+        {%- endunless -%}
+        <div style="display:grid;gap:.75rem;margin-top:1.25rem">
+          <button type="submit" class="btn btn--dark btn--block" data-magnetic data-add-button data-add="{{ 'products.add_to_cart' | t }}" data-soldout="{{ 'products.sold_out' | t }}" data-unavailable="{{ 'products.unavailable' | t }}" {% unless current_variant.available %}disabled{% endunless %}>
+            <span class="btn__fill"></span><span class="btn__label">{% if current_variant.available %}{{ 'products.add_to_cart' | t }}{% else %}{{ 'products.sold_out' | t }}{% endif %}</span>
+          </button>
+          {%- if section.settings.show_buy_now -%}{{ form | payment_button }}{%- endif -%}
+        </div>
+      {%- endform -%}
+
+      <div class="rte">{{ product.description }}</div>
+    </div>
+  </div>
+
+  {%- if section.settings.size_guide != blank -%}
+    <div class="modal" id="size-guide-{{ section.id }}" hidden>
+      <div class="modal__box rte" role="dialog" aria-modal="true" aria-label="{{ 'products.size_guide' | t }}">
+        <button type="button" class="icon-btn" data-modal-close aria-label="{{ 'general.close' | t }}" style="float:right">&times;</button>
+        <h3>{{ section.settings.size_guide.title | escape }}</h3>
+        {{ section.settings.size_guide.content }}
+      </div>
+    </div>
+  {%- endif -%}
+</section>
+{% schema %}
+{"name":"Product","settings":[{"type":"checkbox","id":"show_buy_now","label":"Show Buy it now button","default":true},{"type":"page","id":"size_guide","label":"Size guide page"}]}
+{% endschema %}
