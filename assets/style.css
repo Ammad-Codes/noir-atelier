@@ -142,7 +142,7 @@ h1,h2,h3,h4{margin:0;font-family:var(--font-heading);font-weight:500;line-height
 .mobile-menu.is-open .mobile-menu__foot{opacity:.7}
 
 /* Hero */
-.hero{position:relative;min-height:min(100svh,980px);display:flex;align-items:flex-end;padding:0;color:var(--color-bg);overflow:hidden;background:var(--color-text)}
+.hero{position:relative;min-height:min(calc(100svh - var(--hero-offset,112px)),980px);display:flex;align-items:flex-end;padding:0;color:var(--color-bg);overflow:hidden;background:var(--color-text)}
 .hero__media{position:absolute;inset:0;overflow:hidden}
 .hero__media img{width:100%;height:100%;object-fit:cover;object-position:62% center;transform:scale(1.18);transition:transform 2.6s var(--ease);will-change:transform}
 .is-loaded .hero__media img{transform:scale(1.04)}
