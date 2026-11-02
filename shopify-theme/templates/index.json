@@ -1,10 +1,211 @@
-{"sections":{
-"hero":{"type":"hero","settings":{}},
-"marquee":{"type":"marquee","blocks":{"m1":{"type":"word","settings":{"text":"New Season"}},"m2":{"type":"word","settings":{"text":"Free Shipping"}},"m3":{"type":"word","settings":{"text":"Limited Drop"}},"m4":{"type":"word","settings":{"text":"Made in Italy"}}},"block_order":["m1","m2","m3","m4"],"settings":{"speed":28}},
-"categories":{"type":"category-cards","blocks":{"c1":{"type":"category","settings":{"title":"Women"}},"c2":{"type":"category","settings":{"title":"Men"}},"c3":{"type":"category","settings":{"title":"Accessories"}}},"block_order":["c1","c2","c3"],"settings":{}},
-"featured":{"type":"featured-collection","settings":{"collection":"all","limit":8}},
-"lookbook":{"type":"lookbook-horizontal","blocks":{"l1":{"type":"look","settings":{"caption":"Look 01"}},"l2":{"type":"look","settings":{"caption":"Look 02"}},"l3":{"type":"look","settings":{"caption":"Look 03"}},"l4":{"type":"look","settings":{"caption":"Look 04"}},"l5":{"type":"look","settings":{"caption":"Look 05"}}},"block_order":["l1","l2","l3","l4","l5"],"settings":{}},
-"sale":{"type":"sale-countdown","settings":{}},
-"testimonials":{"type":"testimonials","blocks":{"r1":{"type":"review","settings":{"quote":"The wool coat is the best thing I own. The tailoring is impeccable.","author":"Sofia M. — Milan"}},"r2":{"type":"review","settings":{"quote":"Quiet, confident pieces. More compliments on this blazer than anything else.","author":"James R. — London"}},"r3":{"type":"review","settings":{"quote":"Silk that actually feels like silk. Fast shipping and a perfect fit guide.","author":"Amira K. — Dubai"}},"r4":{"type":"review","settings":{"quote":"Finally a brand that makes things to last. Worth every penny.","author":"Daniel P. — New York"}},"r5":{"type":"review","settings":{"quote":"Packaging, fabric, service — everything feels considered.","author":"Lena H. — Berlin"}}},"block_order":["r1","r2","r3","r4","r5"],"settings":{}},
-"newsletter":{"type":"newsletter","settings":{}}},
-"order":["hero","marquee","categories","featured","lookbook","sale","testimonials","newsletter"]}
+{
+ "sections": {
+  "hero": {
+   "type": "hero",
+   "settings": {}
+  },
+  "marquee": {
+   "type": "marquee",
+   "blocks": {
+    "m1": {
+     "type": "word",
+     "settings": {
+      "text": "New Season"
+     }
+    },
+    "m2": {
+     "type": "word",
+     "settings": {
+      "text": "Free Shipping"
+     }
+    },
+    "m3": {
+     "type": "word",
+     "settings": {
+      "text": "Limited Drop"
+     }
+    },
+    "m4": {
+     "type": "word",
+     "settings": {
+      "text": "Made in Italy"
+     }
+    }
+   },
+   "block_order": [
+    "m1",
+    "m2",
+    "m3",
+    "m4"
+   ],
+   "settings": {
+    "speed": 28
+   }
+  },
+  "categories": {
+   "type": "category-cards",
+   "blocks": {
+    "c1": {
+     "type": "category",
+     "settings": {
+      "title": "Women"
+     }
+    },
+    "c2": {
+     "type": "category",
+     "settings": {
+      "title": "Men"
+     }
+    },
+    "c3": {
+     "type": "category",
+     "settings": {
+      "title": "Accessories"
+     }
+    }
+   },
+   "block_order": [
+    "c1",
+    "c2",
+    "c3"
+   ],
+   "settings": {}
+  },
+  "featured": {
+   "type": "featured-collection",
+   "settings": {
+    "collection": "all",
+    "limit": 8
+   }
+  },
+  "lookbook": {
+   "type": "lookbook-horizontal",
+   "blocks": {
+    "l1": {
+     "type": "look",
+     "settings": {
+      "caption": "Look 01"
+     }
+    },
+    "l2": {
+     "type": "look",
+     "settings": {
+      "caption": "Look 02"
+     }
+    },
+    "l3": {
+     "type": "look",
+     "settings": {
+      "caption": "Look 03"
+     }
+    },
+    "l4": {
+     "type": "look",
+     "settings": {
+      "caption": "Look 04"
+     }
+    },
+    "l5": {
+     "type": "look",
+     "settings": {
+      "caption": "Look 05"
+     }
+    }
+   },
+   "block_order": [
+    "l1",
+    "l2",
+    "l3",
+    "l4",
+    "l5"
+   ],
+   "settings": {}
+  },
+  "sale": {
+   "type": "sale-countdown",
+   "settings": {}
+  },
+  "testimonials": {
+   "type": "testimonials",
+   "blocks": {
+    "r1": {
+     "type": "review",
+     "settings": {
+      "quote": "The wool coat is the best thing I own. The tailoring is impeccable.",
+      "author": "Sofia M. \u2014 Milan"
+     }
+    },
+    "r2": {
+     "type": "review",
+     "settings": {
+      "quote": "Quiet, confident pieces. More compliments on this blazer than anything else.",
+      "author": "James R. \u2014 London"
+     }
+    },
+    "r3": {
+     "type": "review",
+     "settings": {
+      "quote": "Silk that actually feels like silk. Fast shipping and a perfect fit guide.",
+      "author": "Amira K. \u2014 Dubai"
+     }
+    },
+    "r4": {
+     "type": "review",
+     "settings": {
+      "quote": "Finally a brand that makes things to last. Worth every penny.",
+      "author": "Daniel P. \u2014 New York"
+     }
+    },
+    "r5": {
+     "type": "review",
+     "settings": {
+      "quote": "Packaging, fabric, service \u2014 everything feels considered.",
+      "author": "Lena H. \u2014 Berlin"
+     }
+    }
+   },
+   "block_order": [
+    "r1",
+    "r2",
+    "r3",
+    "r4",
+    "r5"
+   ],
+   "settings": {}
+  },
+  "newsletter": {
+   "type": "newsletter",
+   "settings": {}
+  },
+  "lx_stats": {
+   "type": "lx-stats",
+   "settings": {}
+  },
+  "lx_story": {
+   "type": "lx-story",
+   "settings": {}
+  },
+  "lx_press": {
+   "type": "lx-press",
+   "settings": {}
+  },
+  "lx_instagram": {
+   "type": "lx-instagram",
+   "settings": {}
+  }
+ },
+ "order": [
+  "hero",
+  "marquee",
+  "categories",
+  "lx_stats",
+  "featured",
+  "lx_story",
+  "lookbook",
+  "sale",
+  "lx_press",
+  "testimonials",
+  "lx_instagram",
+  "newsletter"
+ ]
+}

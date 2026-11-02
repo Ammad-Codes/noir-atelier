@@ -1,0 +1,24 @@
+  <section class="lx-story" id="story" data-lx-story>
+    <div class="lx-story__media">
+      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1400&q=75&auto=format&fit=crop" alt="Fabric selection in the atelier" width="1400" height="1750" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1400&q=75&auto=format&fit=crop" alt="Tailor at work" width="1400" height="1750" loading="lazy">
+      <img src="{{ 'hero-store.webp' | asset_url }}" alt="The NOIR ATELIER boutique" width="1400" height="1750" loading="lazy">
+    </div>
+    <div class="lx-story__steps">
+      <article class="lx-story__step"><span class="lx-story__no">01 — Material</span><h3>Cloth chosen <em>by hand</em></h3><p>Italian wool, Japanese denim and mulberry silk — sourced from mills we have known for a decade, chosen bolt by bolt.</p></article>
+      <article class="lx-story__step"><span class="lx-story__no">02 — Craft</span><h3>Cut, pressed, <em>finished</em></h3><p>Every coat passes through eleven pairs of hands. Hand-felled collars, horn buttons, seams built to be altered for years.</p></article>
+      <article class="lx-story__step"><span class="lx-story__no">03 — The House</span><h3>A quiet room <em>in the city</em></h3><p>Visit the atelier for fittings, alterations and a glass of something cold. Online, every order arrives wrapped by hand.</p><a href="{{ routes.all_products_collection_url }}" class="btn btn--dark" data-magnetic style="margin-top:2rem;align-self:flex-start"><span class="btn__fill"></span><span class="btn__label">Discover the collection</span></a></article>
+    </div>
+  </section>
+
+{% schema %}
+{
+  "name": "Split-scroll story",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Split-scroll story"
+    }
+  ]
+}
+{% endschema %}

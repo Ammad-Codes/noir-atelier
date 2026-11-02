@@ -49,6 +49,7 @@
 
   {{ 'theme.css' | asset_url | stylesheet_tag }}
   {{ content_for_header }}
+  {{ 'luxe.css' | asset_url | stylesheet_tag }}
 </head>
 
 <body class="template-{{ template.name | replace: '.', '-' }}{% if settings.enable_cursor %} has-cursor{% endif %}" data-currency="{{ cart.currency.iso_code }}" data-money-format="{{ shop.money_format | escape }}" data-free-threshold="{{ settings.free_shipping_threshold }}" data-animations="{% if settings.enable_flying_image %}fly{% endif %}">
@@ -98,5 +99,9 @@
   <div class="toast" role="status" aria-live="polite" data-toast></div>
 
   <script src="{{ 'theme.js' | asset_url }}" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+  <script src="{{ 'luxe.js' | asset_url }}" defer></script>
 </body>
 </html>

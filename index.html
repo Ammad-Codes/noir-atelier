@@ -13,6 +13,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@300;400;500;600;700&display=swap">
 <link rel="stylesheet" href="assets/style.css">
+<link rel="stylesheet" href="assets/luxe.css">
 </head>
 <body class="has-cursor" data-money-format="${{amount}}" data-free-threshold="250">
 <a class="skip-link" href="#main">Skip to content</a>
@@ -96,9 +97,21 @@
     <div class="container">
       <div class="section-head" data-reveal><div><p class="eyebrow reveal-up">Collections</p><h2 class="section-title"><span class="reveal-mask"><span>Shop by <em>category</em></span></span></h2></div></div>
       <div class="categories__grid">
-        <a href="#shop" class="category-card" data-tilt data-cursor="view"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1100&q=80&auto=format&fit=crop" alt="Women" loading="lazy"><span class="category-card__glare"></span><span class="category-card__body"><span><span class="category-card__count">48 pieces</span><h3 class="category-card__title">Women</h3></span><span class="category-card__arrow">→</span></span></a>
-        <a href="#shop" class="category-card" data-tilt data-cursor="view"><img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1100&q=80&auto=format&fit=crop" alt="Men" loading="lazy"><span class="category-card__glare"></span><span class="category-card__body"><span><span class="category-card__count">36 pieces</span><h3 class="category-card__title">Men</h3></span><span class="category-card__arrow">→</span></span></a>
-        <a href="#shop" class="category-card" data-tilt data-cursor="view"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1100&q=80&auto=format&fit=crop" alt="Accessories" loading="lazy"><span class="category-card__glare"></span><span class="category-card__body"><span><span class="category-card__count">22 pieces</span><h3 class="category-card__title">Accessories</h3></span><span class="category-card__arrow">→</span></span></a>
+        <a href="#shop" class="category-card lx-clip" data-tilt data-cursor="view"><img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1100&q=80&auto=format&fit=crop" alt="Women" loading="lazy"><span class="category-card__glare"></span><span class="category-card__body"><span><span class="category-card__count">48 pieces</span><h3 class="category-card__title">Women</h3></span><span class="category-card__arrow">→</span></span></a>
+        <a href="#shop" class="category-card lx-clip" data-tilt data-cursor="view"><img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=1100&q=80&auto=format&fit=crop" alt="Men" loading="lazy"><span class="category-card__glare"></span><span class="category-card__body"><span><span class="category-card__count">36 pieces</span><h3 class="category-card__title">Men</h3></span><span class="category-card__arrow">→</span></span></a>
+        <a href="#shop" class="category-card lx-clip" data-tilt data-cursor="view"><img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?w=1100&q=80&auto=format&fit=crop" alt="Accessories" loading="lazy"><span class="category-card__glare"></span><span class="category-card__body"><span><span class="category-card__count">22 pieces</span><h3 class="category-card__title">Accessories</h3></span><span class="category-card__arrow">→</span></span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="lx-stats" id="stats">
+    <div class="container">
+      <div class="section-head" data-lx-lines><p class="eyebrow">The house in numbers</p><h2 class="section-title"><span class="lx-line"><span>Made slowly,</span></span><span class="lx-line"><span><em>worn for years</em></span></span></h2></div>
+      <div class="lx-stats__grid" data-lx-stagger>
+        <div><span class="lx-stat__num" data-count="12" data-suffix="">0</span><span class="lx-stat__label">Years of craft</span></div>
+        <div><span class="lx-stat__num" data-count="48000" data-suffix="+">0</span><span class="lx-stat__label">Clients worldwide</span></div>
+        <div><span class="lx-stat__num" data-count="36">0</span><span class="lx-stat__label">Artisan partners</span></div>
+        <div><span class="lx-stat__num" data-count="100" data-suffix="%">0</span><span class="lx-stat__label">Traceable fabrics</span></div>
       </div>
     </div>
   </section>
@@ -107,6 +120,19 @@
     <div class="container">
       <div class="section-head" data-reveal><div><p class="eyebrow reveal-up">Featured</p><h2 class="section-title"><span class="reveal-mask"><span>The new <em>edit</em></span></span></h2></div><a href="#shop" class="btn btn--ghost reveal-up" data-magnetic><span class="btn__fill"></span><span class="btn__label">View all</span></a></div>
       <div class="product-grid" data-product-grid></div>
+    </div>
+  </section>
+
+  <section class="lx-story" id="story" data-lx-story>
+    <div class="lx-story__media">
+      <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1400&q=75&auto=format&fit=crop" alt="Fabric selection in the atelier" loading="lazy">
+      <img src="https://images.unsplash.com/photo-1558769132-cb1aea458c5e?w=1400&q=75&auto=format&fit=crop" alt="Tailor at work" loading="lazy">
+      <img src="assets/hero-store.webp" alt="The NOIR ATELIER boutique" loading="lazy">
+    </div>
+    <div class="lx-story__steps">
+      <article class="lx-story__step"><span class="lx-story__no">01 — Material</span><h3>Cloth chosen <em>by hand</em></h3><p>Italian wool, Japanese denim and mulberry silk — sourced from mills we have known for a decade, chosen bolt by bolt.</p></article>
+      <article class="lx-story__step"><span class="lx-story__no">02 — Craft</span><h3>Cut, pressed, <em>finished</em></h3><p>Every coat passes through eleven pairs of hands. Hand-felled collars, horn buttons, seams built to be altered for years.</p></article>
+      <article class="lx-story__step"><span class="lx-story__no">03 — The House</span><h3>A quiet room <em>in the city</em></h3><p>Visit the atelier for fittings, alterations and a glass of something cold. Online, every order arrives wrapped by hand.</p><a href="#shop" class="btn btn--dark" data-magnetic style="margin-top:2rem;align-self:flex-start"><span class="btn__fill"></span><span class="btn__label">Discover the collection</span></a></article>
     </div>
   </section>
 
@@ -126,8 +152,8 @@
 
   <section class="section" id="sale">
     <div class="container">
-      <div class="sale reveal-wipe" data-reveal>
-        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1800&q=80&auto=format&fit=crop" alt="Clothing rail" loading="lazy">
+      <div class="sale reveal-wipe lx-zoom" data-reveal>
+        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=1800&q=80&auto=format&fit=crop" alt="Clothing rail" loading="lazy" data-speed=".12">
         <div class="sale__content">
           <p class="eyebrow">Private sale</p>
           <h2 class="sale__title">Up to <em style="color:var(--color-accent)">40% off</em> archive pieces</h2>
@@ -140,6 +166,13 @@
           <a href="#shop" class="btn btn--light" data-magnetic><span class="btn__fill"></span><span class="btn__label">Shop the sale</span></a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="lx-press" id="press">
+    <div class="container">
+      <p class="lx-press__quote lx-up">“The most considered new label of the season — quiet luxury with real backbone.”</p>
+      <div class="lx-press__row" data-lx-stagger><span class="lx-press__logo">VOGUE</span><span class="lx-press__logo">ELLE</span><span class="lx-press__logo">GQ</span><span class="lx-press__logo">HARPER'S BAZAAR</span><span class="lx-press__logo">MONOCLE</span></div>
     </div>
   </section>
 
@@ -159,6 +192,20 @@
     </div>
   </section>
 
+  <section class="section lx-insta" id="instagram">
+    <div class="container">
+      <div class="section-head" data-lx-lines><div><p class="eyebrow">@noir.atelier</p><h2 class="section-title"><span class="lx-line"><span>Seen on <em>Instagram</em></span></span></h2></div><a href="#" class="link-underline">Follow us →</a></div>
+      <div class="lx-insta__grid" data-lx-stagger>
+        <a href="#" class="lx-insta__item lx-zoom" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=500&q=70&auto=format&fit=crop" alt="" loading="lazy"></a>
+        <a href="#" class="lx-insta__item lx-zoom" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=500&q=70&auto=format&fit=crop" alt="" loading="lazy"></a>
+        <a href="#" class="lx-insta__item lx-zoom" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=500&q=70&auto=format&fit=crop" alt="" loading="lazy"></a>
+        <a href="#" class="lx-insta__item lx-zoom" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1507680434567-5739c80be1ac?w=500&q=70&auto=format&fit=crop" alt="" loading="lazy"></a>
+        <a href="#" class="lx-insta__item lx-zoom" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=500&q=70&auto=format&fit=crop" alt="" loading="lazy"></a>
+        <a href="#" class="lx-insta__item lx-zoom" aria-label="Instagram post"><img src="https://images.unsplash.com/photo-1492707892479-7bc8d5a4ee93?w=500&q=70&auto=format&fit=crop" alt="" loading="lazy"></a>
+      </div>
+    </div>
+  </section>
+
   <section class="section newsletter">
     <div class="container" data-reveal>
       <p class="eyebrow reveal-up">The Atelier Letter</p>
@@ -174,6 +221,10 @@
 
 <footer class="site-footer">
   <div class="container">
+    <div class="lx-footer-top">
+      <h3>Visit the atelier.<br><em>By appointment.</em></h3>
+      <div><p>Via della Spiga 18, Milan · Mon–Sat 10:00–19:00<br>hello@noiratelier.com · +39 02 0000 0000</p><div class="lx-pay" style="margin-top:1.25rem"><span>VISA</span><span>MASTERCARD</span><span>AMEX</span><span>PAYPAL</span><span>APPLE PAY</span></div></div>
+    </div>
     <div class="site-footer__grid">
       <div><h4>Shop</h4><ul><li><a href="#shop">New arrivals</a></li><li><a href="#categories">Women</a></li><li><a href="#categories">Men</a></li><li><a href="#categories">Accessories</a></li></ul></div>
       <div><h4>Help</h4><ul><li><a href="#">Shipping</a></li><li><a href="#">Returns</a></li><li><a href="#">Size guide</a></li><li><a href="#">Contact</a></li></ul></div>
@@ -197,5 +248,9 @@
 <div class="toast" role="status" aria-live="polite" data-toast></div>
 <script src="assets/products.js"></script>
 <script src="assets/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<script src="assets/luxe.js"></script>
 </body>
 </html>
