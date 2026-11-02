@@ -13,7 +13,7 @@
         {%- if section.settings.logo != blank -%}
           {{ section.settings.logo | image_url: width: 300 | image_tag: alt: shop.name, width: section.settings.logo_width, height: null, loading: 'eager' }}
         {%- else -%}
-          {{ settings.brand_name | default: shop.name | upcase | escape }}
+          {%- render 'logo-monogram', class: 'lx-mono--header' -%}<span>{{ settings.brand_name | default: shop.name | upcase | escape }}</span>
         {%- endif -%}
       </a>
       <div class="site-header__actions">

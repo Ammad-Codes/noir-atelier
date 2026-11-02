@@ -5,7 +5,7 @@
   // 1. Smooth scroll
   var lenis = null;
   if (!reduce && window.Lenis) {
-    lenis = new Lenis({ duration: 1.15, smoothWheel: true, easing: function (t) { return Math.min(1, 1.001 - Math.pow(2, -10 * t)); } });
+    lenis = new Lenis({ lerp: 0.09, smoothWheel: true, wheelMultiplier: 0.9, touchMultiplier: 1.4, syncTouch: false, prevent: function (n) { var h = n.closest && n.closest('[data-hscroll]'); return !!(h && h.scrollWidth > h.clientWidth + 2); } });
     window.__lenis = lenis;
     $$('a[href^="#"]').forEach(function (a) {
       a.addEventListener('click', function (e) { var id = a.getAttribute('href'); if (id.length > 1 && document.querySelector(id)) { e.preventDefault(); lenis.scrollTo(id, { offset: -80 }); } });
@@ -55,6 +55,25 @@
     if (!('IntersectionObserver' in window)) return;
     var sio = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) set(steps.indexOf(e.target)); }); }, { rootMargin: '-45% 0px -45% 0px' });
     steps.forEach(function (s) { sio.observe(s); });
+  });
+  // 6. Smooth horizontal card scrollers: drag with momentum + wheel-to-horizontal
+  function hscroll(el) {
+    el.setAttribute('data-hscroll', '');
+    var down = false, sx = 0, sl = 0, v = 0, lx = 0, lt = 0, raf = 0, moved = 0;
+    el.addEventListener('pointerdown', function (e) { if (e.pointerType !== 'mouse' || el.scrollWidth <= el.clientWidth + 2) return; down = true; moved = 0; sx = lx = e.clientX; sl = el.scrollLeft; lt = performance.now(); v = 0; cancelAnimationFrame(raf); });
+    window.addEventListener('pointermove', function (e) { if (!down) return; var dx = e.clientX - sx; if (Math.abs(dx) > 4) { el.classList.add('is-dragging'); moved = 1; } el.scrollLeft = sl - dx; var t = performance.now(); v = (lx - e.clientX) / Math.max(1, t - lt) * 16; lx = e.clientX; lt = t; });
+    window.addEventListener('pointerup', function () { if (!down) return; down = false;
+      (function glide() { v *= 0.93; el.scrollLeft += v; if (Math.abs(v) > 0.4) raf = requestAnimationFrame(glide); else el.classList.remove('is-dragging'); })(); });
+    el.addEventListener('click', function (e) { if (moved) { e.preventDefault(); e.stopPropagation(); moved = 0; } }, true);
+  }
+  var mqMobile = window.matchMedia('(max-width: 749px)');
+  $$('#shop .product-grid, .lx-insta__grid').forEach(function (g) { if (mqMobile.matches) hscroll(g); });
+  $$('.lookbook.is-static .lookbook__track').forEach(hscroll);
+  // 3D reviews: swipe/drag
+  $$('[data-carousel3d]').forEach(function (c) {
+    var x0 = null, root = c.parentElement;
+    c.addEventListener('pointerdown', function (e) { x0 = e.clientX; });
+    c.addEventListener('pointerup', function (e) { if (x0 === null) return; var dx = e.clientX - x0; x0 = null; if (Math.abs(dx) > 40) { var b = root.querySelector(dx < 0 ? '[data-next]' : '[data-prev]'); if (b) b.click(); } });
   });
   window.addEventListener('load', function () { if (hasGsap) ScrollTrigger.refresh(); });
 })();
