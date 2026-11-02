@@ -144,11 +144,11 @@ h1,h2,h3,h4{margin:0;font-family:var(--font-heading);font-weight:500;line-height
 /* Hero */
 .hero{position:relative;min-height:min(100svh,980px);display:flex;align-items:flex-end;padding:0;color:var(--color-bg);overflow:hidden;background:var(--color-text)}
 .hero__media{position:absolute;inset:0;overflow:hidden}
-.hero__media img{width:100%;height:100%;object-fit:cover;object-position:center 25%;transform:scale(1.18);transition:transform 2.6s var(--ease);will-change:transform}
+.hero__media img{width:100%;height:100%;object-fit:cover;object-position:62% center;transform:scale(1.18);transition:transform 2.6s var(--ease);will-change:transform}
 .is-loaded .hero__media img{transform:scale(1.04)}
-.hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,13,13,.25) 0%,rgba(13,13,13,.05) 40%,rgba(13,13,13,.75) 100%)}
+.hero__media::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(13,13,13,.55) 0%,rgba(13,13,13,.1) 60%),linear-gradient(180deg,rgba(13,13,13,.3) 0%,rgba(13,13,13,.05) 40%,rgba(13,13,13,.8) 100%)}
 .hero__content{position:relative;z-index:2;width:min(100% - 2.5rem,var(--container-max));padding-block:clamp(7rem,14vh,10rem) clamp(3rem,8vh,5.5rem)}
-.hero__title{font-size:calc(clamp(2.9rem,10vw,9.5rem) * var(--heading-scale));line-height:.95;letter-spacing:-.025em;margin-bottom:1.75rem}
+.hero__title{font-size:calc(min(clamp(2.6rem,8vw,7.5rem),13svh) * var(--heading-scale));line-height:.95;letter-spacing:-.025em;margin-bottom:1.25rem}
 .hero__title .reveal-mask{padding-bottom:.08em}
 .hero__row{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.5rem}
 .hero__text{max-width:420px;margin:0;font-size:1rem;opacity:.85}
